@@ -23,29 +23,32 @@ return ListView.builder(
 return SingleChildScrollView(
   child: ListTile(
 
-    // margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-    // color: Colors.green.shade200,
-    title: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text("Name: "+snapshot.data!.docs[i]["name"]),
-        SizedBox(
-  height: 10,
-        ),
-        Text("Address: "+snapshot.data!.docs[i]["address"]),
-        SizedBox(
-          height: 10,
-        ),
-        Text("Item_Ordered: "+snapshot.data!.docs[i]["order"]),
-        SizedBox(
-          height: 10,
-        ),
-        Text("Amount: "+snapshot.data!.docs[i]["amount"]),
-        SizedBox(
-          height: 10,
-        ),
-        Text("Phone_number: "+snapshot.data!.docs[i]["number"]),
-      ],
+
+    title: Container(
+      margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+      color: Colors.green.shade200,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text("Name: "+snapshot.data!.docs[i]["name"]),
+          SizedBox(
+        height: 10,
+          ),
+          Text("Address: "+snapshot.data!.docs[i]["address"]),
+          SizedBox(
+            height: 10,
+          ),
+          Text("Item_Ordered: "+snapshot.data!.docs[i]["order"]),
+          SizedBox(
+            height: 10,
+          ),
+          Text("Amount: "+snapshot.data!.docs[i]["amount"]),
+          SizedBox(
+            height: 10,
+          ),
+          Text("Phone_number: "+snapshot.data!.docs[i]["number"]),
+        ],
+      ),
     ),
     trailing: Row(
       mainAxisSize: MainAxisSize.min,
