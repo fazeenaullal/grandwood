@@ -42,85 +42,87 @@ return CircularProgressIndicator();
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-       child: Column(
-         children: [
-           TextField(
-             controller: authService.name,
-             decoration: InputDecoration(
-               hintText: "Name",
-               border: OutlineInputBorder(
-                 borderRadius: BorderRadius.circular(14)
-               )
-             ),
-           ),
-           SizedBox(
-height: 12,
-           ),
-           TextField(
-             controller: authService.address,
-             decoration: InputDecoration(
-                 hintText: "Address",
+       child: SingleChildScrollView(
+         child: Column(
+           children: [
+             TextField(
+               controller: authService.name,
+               decoration: InputDecoration(
+                 hintText: "Name",
                  border: OutlineInputBorder(
-                     borderRadius: BorderRadius.circular(14)
+                   borderRadius: BorderRadius.circular(14)
                  )
-             ),
-           ),
-           SizedBox(
-             height: 12,
-           ),
-           TextField(
-             controller: authService.order,
-             decoration: InputDecoration(
-                 hintText: "Item Ordered",
-                 border: OutlineInputBorder(
-                     borderRadius: BorderRadius.circular(14)
-                 )
-             ),
-           ),
-           SizedBox(
-             height: 12,
-           ),
-           TextField(
-             controller: authService.amount,
-             decoration: InputDecoration(
-                 hintText: "Amount Paid",
-                 border: OutlineInputBorder(
-                     borderRadius: BorderRadius.circular(14)
-                 )
-             ),
-           ),
-           SizedBox(
-             height: 12,
-           ),
-           IntlPhoneField(
-             controller: authService.number,
-             decoration: InputDecoration(
-               labelText: 'Phone Number',
-               border: OutlineInputBorder(
-                 borderRadius: BorderRadius.circular(20)
                ),
              ),
-             initialCountryCode: 'IN',
-             onChanged: (phone) {
-               print(phone.completeNumber);
-             },
-           ),
-           // TextField(
-           //   controller: authService.number,
-           //   decoration: InputDecoration(
-           //       hintText: "phone_Number",
-           //       border: OutlineInputBorder(
-           //           borderRadius: BorderRadius.circular(14)
-           //       )
-           //   ),
-           // ),
-           SizedBox(height: 12,),
-           ElevatedButton(onPressed: (){
-             if(authService.name!="" && authService.address!=""&& authService.order!=""&& authService.amount!=""&& authService.number!=""){
-               authService.SaveUserData(context);
-             }
-           }, child: Text("SAVE"))
-         ],
+             SizedBox(
+         height: 12,
+             ),
+             TextField(
+               controller: authService.address,
+               decoration: InputDecoration(
+                   hintText: "Address",
+                   border: OutlineInputBorder(
+                       borderRadius: BorderRadius.circular(14)
+                   )
+               ),
+             ),
+             SizedBox(
+               height: 12,
+             ),
+             TextField(
+               controller: authService.order,
+               decoration: InputDecoration(
+                   hintText: "Item Ordered",
+                   border: OutlineInputBorder(
+                       borderRadius: BorderRadius.circular(14)
+                   )
+               ),
+             ),
+             SizedBox(
+               height: 12,
+             ),
+             TextField(
+               controller: authService.amount,
+               decoration: InputDecoration(
+                   hintText: "Amount Paid",
+                   border: OutlineInputBorder(
+                       borderRadius: BorderRadius.circular(14)
+                   )
+               ),
+             ),
+             SizedBox(
+               height: 12,
+             ),
+             IntlPhoneField(
+               controller: authService.number,
+               decoration: InputDecoration(
+                 labelText: 'Phone Number',
+                 border: OutlineInputBorder(
+                   borderRadius: BorderRadius.circular(20)
+                 ),
+               ),
+               initialCountryCode: 'IN',
+               onChanged: (phone) {
+                 print(phone.completeNumber);
+               },
+             ),
+             // TextField(
+             //   controller: authService.number,
+             //   decoration: InputDecoration(
+             //       hintText: "phone_Number",
+             //       border: OutlineInputBorder(
+             //           borderRadius: BorderRadius.circular(14)
+             //       )
+             //   ),
+             // ),
+             SizedBox(height: 12,),
+             ElevatedButton(onPressed: (){
+               if(authService.name!="" && authService.address!=""&& authService.order!=""&& authService.amount!=""&& authService.number!=""){
+                 authService.SaveUserData(context);
+               }
+             }, child: Text("SAVE"))
+           ],
+         ),
        ),
       ),
     );

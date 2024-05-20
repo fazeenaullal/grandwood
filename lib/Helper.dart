@@ -131,6 +131,15 @@ await auth.createUserWithEmailAndPassword(email: email.text, password: password.
         // Navigator.pop(context);
       });
       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (c)=>HomeScreen()), (route) => false);
+      showDialog(context: context, builder: (context){
+        return AlertDialog(
+          title: Text(
+              "Successfully saved your data"
+          ),
+
+
+        );
+      });
     }catch(e){
       Navigator.pop(context);
       showDialog(context: context, builder: (context){
@@ -142,6 +151,10 @@ await auth.createUserWithEmailAndPassword(email: email.text, password: password.
 
         );
       });}
+  }
+  //delete
+  Future<void> deleteData(String docId){
+    return FirebaseFirestore.instance.collection("Orders").doc(docId).delete();
   }
   void logout(context) async{
     await auth.signOut();
